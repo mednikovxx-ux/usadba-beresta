@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Усадьба Береста — дом, баня и чан в берёзовой роще</title>
+  <meta name="description" content="Загородная усадьба «Береста»: дом A-frame в берёзовой роще, баня-бочка на дровах, горячий чан и беседка с мангалом. Выберите даты и забронируйте онлайн.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Усадьба Береста">
+  <meta property="og:description" content="Дом A-frame в берёзовой роще, баня-бочка и горячий чан под открытым небом.">
+  <meta property="og:image" content="assets/logo/avatar-512.png">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="theme-color" content="#A81C1F">
+  <link rel="icon" href="assets/logo/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+
+  <link rel="preload" as="font" type="font/ttf" href="assets/fonts/Tsarevich-Regular.ttf" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/montserrat-cyrillic.woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/video/poster.jpg" media="(min-width: 768px)">
+  <link rel="preload" as="image" href="assets/video/poster-mobile.jpg" media="(max-width: 767px)">
+
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="assets/brand/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <!-- Видео-фон: кадры рисуются на canvas; между остановками видео доигрывает переход само -->
+  <canvas id="bg-video" aria-hidden="true"></canvas>
+
+  <!-- ===================== Шапка ===================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header__inner">
+      <a class="header__logo" href="#top" aria-label="Усадьба Береста — на главную">
+        <picture>
+          <source media="(min-width: 768px)" srcset="assets/logo/horizontal-white.png" width="1204" height="445">
+          <img src="assets/logo/emblem-white.png" width="468" height="445" alt="Усадьба Береста">
+        </picture>
+      </a>
+
+      <nav class="header__nav" aria-label="Основное меню">
+        <ul class="nav-list">
+          <li><a href="#top">Дом</a></li>
+          <li><a href="#sauna">Баня</a></li>
+          <li><a href="#tub">Чан</a></li>
+          <li><a href="#leisure">Досуг</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--inverse header__cta" href="#booking">Забронировать</a>
+
+      <button class="burger" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Открыть меню">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Меню" hidden>
+    <div class="mobile-menu__top container">
+      <img class="mobile-menu__logo" src="assets/logo/emblem-white.png" width="468" height="445" alt="Усадьба Береста">
+      <button class="mobile-menu__close" type="button" aria-label="Закрыть меню">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="container" aria-label="Мобильное меню">
+      <ul class="mobile-menu__list">
+        <li><a href="#top">Дом</a></li>
+        <li><a href="#sauna">Баня</a></li>
+        <li><a href="#tub">Чан</a></li>
+        <li><a href="#leisure">Досуг</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+      <a class="btn btn--inverse mobile-menu__cta" href="#booking">Забронировать</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- ===================== 1. Дом (первый экран) ===================== -->
+    <section class="scene scene--hero scene--left is-active" id="top" data-frame="1" data-focus="0.58" aria-labelledby="hero-title">
+      <div class="scene__inner container">
+        <div class="scene-block scene-block--hero">
+          <p class="eyebrow">Загородная усадьба · [N] км от [Город]</p>
+          <h1 id="hero-title">Дом, баня <br>и тишина</h1>
+          <p class="lead">Дом A-frame в берёзовой роще, баня на дровах и горячий чан.</p>
+          <p class="meta">до [N] гостей · [Площадь] м² · <strong>[Цена]</strong> / ночь</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="#booking">Выбрать даты</a>
+            <a class="btn btn--ghost" href="#sauna">Смотреть усадьбу</a>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#sauna" aria-label="Листайте вниз">
+        <span>Листайте</span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
+    </section>
+
+    <!-- ===================== 2. Баня-бочка ===================== -->
+    <section class="scene scene--left" id="sauna" data-frame="40" data-focus="0.68" aria-labelledby="sauna-title">
+      <div class="scene__inner container">
+        <div class="scene-block">
+          <p class="eyebrow">Баня-бочка</p>
+          <h2 id="sauna-title">Настоящий пар <br>на дровах</h2>
+          <p>Затопим к вашему приезду. Полотенца и дрова — наши.</p>
+          <p class="meta"><strong>[Стоимость бани]</strong> / сеанс</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 3. Банный чан ===================== -->
+    <section class="scene scene--left" id="tub" data-frame="66" data-focus="0.78" aria-labelledby="tub-title">
+      <div class="scene__inner container">
+        <div class="scene-block">
+          <p class="eyebrow">Банный чан</p>
+          <h2 id="tub-title">Горячий чан <br>под открытым небом</h2>
+          <p>Горячая вода и пар, а вокруг — берёзы и звёзды.</p>
+          <p class="meta"><strong>[Стоимость чана]</strong> / сеанс</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 4. Беседка и досуг ===================== -->
+    <section class="scene scene--left" id="leisure" data-frame="92" data-focus="0.6" aria-labelledby="leisure-title">
+      <div class="scene__inner container">
+        <div class="scene-block">
+          <p class="eyebrow">Беседка и досуг</p>
+          <h2 id="leisure-title">Беседка, мангал <br>и гамаки</h2>
+          <p>Летняя кухня для ужина всей компанией, мангал и прогулки по лесу.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 5. Бронирование ===================== -->
+    <section class="scene scene--right scene--booking" id="booking" data-frame="124" data-focus="0.32" aria-labelledby="booking-title">
+      <div class="scene__inner container">
+        <div class="scene-block booking">
+          <p class="eyebrow">Бронирование</p>
+          <h2 id="booking-title">Выберите даты</h2>
+
+          <form class="booking-form" id="booking-form" novalidate>
+            <fieldset class="field field--dates" aria-describedby="dates-error">
+              <legend class="label">Даты заезда и выезда</legend>
+              <div class="calendar" id="calendar" data-calendar>
+                <p class="calendar__fallback">Чтобы выбрать даты, включите JavaScript или позвоните нам: <a href="tel:[Телефон]">[Телефон]</a>.</p>
+              </div>
+              <input type="hidden" name="checkIn" id="check-in">
+              <input type="hidden" name="checkOut" id="check-out">
+              <div class="booking-summary" id="booking-summary" aria-live="polite"></div>
+              <p class="field__error" id="dates-error" hidden></p>
+            </fieldset>
+
+            <div class="form-grid">
+              <div class="field">
+                <label class="label" for="bf-name">Имя</label>
+                <input class="input" id="bf-name" name="name" type="text" autocomplete="name" required aria-describedby="bf-name-error">
+                <p class="field__error" id="bf-name-error" hidden></p>
+              </div>
+              <div class="field">
+                <label class="label" for="bf-phone">Телефон</label>
+                <input class="input" id="bf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required aria-describedby="bf-phone-error">
+                <p class="field__error" id="bf-phone-error" hidden></p>
+              </div>
+              <div class="field field--guests">
+                <label class="label" for="bf-guests">Гостей</label>
+                <input class="input" id="bf-guests" name="guests" type="number" inputmode="numeric" min="1" value="2" required aria-describedby="bf-guests-error">
+                <p class="field__error" id="bf-guests-error" hidden></p>
+              </div>
+            </div>
+
+            <details class="extras" id="bf-extras">
+              <summary>Добавить пожелания</summary>
+              <div class="extras__body">
+                <fieldset class="field">
+                  <legend class="label">Добавить к проживанию</legend>
+                  <div class="options">
+                    <label class="check"><input type="checkbox" name="services" value="sauna"><span>Баня-бочка</span></label>
+                    <label class="check"><input type="checkbox" name="services" value="tub"><span>Банный чан</span></label>
+                  </div>
+                </fieldset>
+                <div class="field">
+                  <label class="label" for="bf-email">Почта <span class="label__opt">необязательно</span></label>
+                  <input class="input" id="bf-email" name="email" type="email" autocomplete="email" aria-describedby="bf-email-error">
+                  <p class="field__error" id="bf-email-error" hidden></p>
+                </div>
+                <div class="field">
+                  <label class="label" for="bf-comment">Комментарий <span class="label__opt">необязательно</span></label>
+                  <textarea class="input input--area" id="bf-comment" name="comment" rows="2" placeholder="Например, приедем с собакой"></textarea>
+                </div>
+              </div>
+            </details>
+
+            <div class="field">
+              <label class="check check--consent">
+                <input type="checkbox" name="consent" id="bf-consent" required aria-describedby="bf-consent-error">
+                <span>Согласен на обработку персональных данных по <a href="[Ссылка на политику]">политике конфиденциальности</a></span>
+              </label>
+              <p class="field__error" id="bf-consent-error" hidden></p>
+            </div>
+
+            <button class="btn btn--primary btn--block" type="submit">Забронировать</button>
+            <p class="form-status" id="form-status" role="alert" hidden></p>
+          </form>
+
+          <div class="booking-success" id="booking-success" tabindex="-1" hidden>
+            <h3>Заявка принята</h3>
+            <p id="booking-success-text"></p>
+            <button class="btn btn--ghost" type="button" id="booking-again">Новая заявка</button>
+          </div>
+
+          <div class="booking__contacts">
+            <p>Удобнее голосом или в мессенджере?</p>
+            <div class="contact-links">
+              <a href="tel:[Телефон]">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                [Телефон]
+              </a>
+              <a href="[Ссылка на Telegram]">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                Telegram
+              </a>
+              <a href="[Ссылка на WhatsApp]">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== После видео ===================== -->
+    <div class="after-video">
+      <section class="section" id="reviews" aria-labelledby="reviews-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="bark" aria-hidden="true"><i></i><i></i><i></i></span>
+            <p class="eyebrow">Отзывы</p>
+            <h2 id="reviews-title">Что говорят гости</h2>
+          </div>
+          <div class="cards reveal-group">
+            <figure class="review reveal" style="--i:0">
+              <blockquote><p>[Текст отзыва гостя]</p></blockquote>
+              <figcaption><strong>[Имя гостя]</strong><span>[Месяц и год поездки]</span></figcaption>
+            </figure>
+            <figure class="review reveal" style="--i:1">
+              <blockquote><p>[Текст отзыва гостя]</p></blockquote>
+              <figcaption><strong>[Имя гостя]</strong><span>[Месяц и год поездки]</span></figcaption>
+            </figure>
+            <figure class="review reveal" style="--i:2">
+              <blockquote><p>[Текст отзыва гостя]</p></blockquote>
+              <figcaption><strong>[Имя гостя]</strong><span>[Месяц и год поездки]</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--contacts" id="contacts" aria-labelledby="contacts-title">
+        <div class="container contacts">
+          <div class="contacts__text reveal">
+            <p class="eyebrow">Контакты</p>
+            <h2 id="contacts-title">Как добраться</h2>
+            <ul class="contact-list">
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div><strong>Адрес</strong><span>[Адрес усадьбы]</span></div>
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+                <div><strong>На машине</strong><span>[Сколько ехать] от [Город], парковка у дома</span></div>
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <div><strong>Заезд и выезд</strong><span>Заезд с [Время заезда], выезд до [Время выезда]</span></div>
+              </li>
+            </ul>
+            <div class="btn-row">
+              <a class="btn btn--primary" href="tel:[Телефон]">Позвонить</a>
+              <a class="btn btn--secondary" href="[Ссылка на маршрут в Яндекс Картах]">Построить маршрут</a>
+            </div>
+          </div>
+          <div class="map-placeholder reveal" role="img" aria-label="Здесь будет карта проезда">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>[Карта проезда — виджет Яндекс Карт]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Футер ===================== -->
+      <footer class="site-footer">
+        <img class="site-footer__mark" src="assets/logo/emblem-white.png" width="468" height="445" alt="" aria-hidden="true" loading="lazy">
+        <div class="container footer__inner">
+          <a class="footer__logo" href="#top" aria-label="Усадьба Береста — наверх">
+            <img src="assets/logo/logo-white.png" width="702" height="920" alt="Усадьба Береста" loading="lazy">
+          </a>
+          <div class="footer__cols">
+            <nav class="footer__col" aria-label="Навигация в подвале">
+              <h2 class="footer__title">Навигация</h2>
+              <ul>
+                <li><a href="#top">Дом A-frame</a></li>
+                <li><a href="#sauna">Баня-бочка</a></li>
+                <li><a href="#tub">Банный чан</a></li>
+                <li><a href="#leisure">Беседка и досуг</a></li>
+                <li><a href="#booking">Бронирование</a></li>
+              </ul>
+            </nav>
+            <div class="footer__col">
+              <h2 class="footer__title">Контакты</h2>
+              <ul>
+                <li><a href="tel:[Телефон]">[Телефон]</a></li>
+                <li><a href="mailto:[Почта]">[Почта]</a></li>
+                <li><span>[Адрес усадьбы]</span></li>
+              </ul>
+            </div>
+            <div class="footer__col">
+              <h2 class="footer__title">Мы в соцсетях</h2>
+              <ul>
+                <li><a href="[Ссылка на ВКонтакте]">ВКонтакте</a></li>
+                <li><a href="[Ссылка на Telegram]">Telegram</a></li>
+                <li><a href="[Ссылка на WhatsApp]">WhatsApp</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container footer__bottom">
+          <p>© <span data-year>2026</span> Усадьба Береста</p>
+          <a href="[Ссылка на политику]">Политика конфиденциальности</a>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script src="js/booking.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

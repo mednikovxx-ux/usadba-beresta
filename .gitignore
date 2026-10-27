@@ -1,0 +1,7 @@
+# Не публикуется: исходники и внутренние файлы
+assets/video/source.mp4
+assets/video/stills/
+docs/logobook.pdf
+CLAUDE.md
+ПРОМТ.md
+.claude/

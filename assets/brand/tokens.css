@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Усадьба Береста — фирменные токены сайта
+   Единственный источник цветов, шрифтов, отступов и анимаций.
+   Никаких других значений в стилях сайта быть не должно.
+   ========================================================================== */
+
+/* ---------- Шрифты (локальные файлы, Google Fonts не нужен) ---------- */
+@font-face {
+  font-family: "Tsarevich";
+  src: url("../fonts/Tsarevich-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Tsarevich";
+  src: url("../fonts/Tsarevich-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-latin.woff2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-cyrillic.woff2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+:root {
+  /* ---------- Цвета (только эти) ---------- */
+  --brand:        #A81C1F;  /* фирменный красный: шапка, футер, кнопки, заголовки, ссылки */
+  --brand-dark:   #86161A;  /* тёмно-красный: основной текст абзацев, hover кнопок */
+  --brand-tint:   #F6E4E2;  /* мягкая красная подложка: бейджи, выделения */
+  --bg:           #FAF8F5;  /* «Береста» — фон страницы */
+  --white:        #FFFFFF;  /* карточки, поля ввода, текст и логотип на красном */
+  --muted:        #6B5F55;  /* подписи, мета, плейсхолдеры (не для заголовков) */
+  --line:         #E8DFD3;  /* тонкие разделители и рамки карточек */
+  --line-strong:  #8F8378;  /* рамки полей ввода */
+  --overlay:      rgba(134, 22, 26, 0.55); /* затемнение фото под белым текстом */
+  --success:      #2F6B3E;  /* только статус «даты свободны» */
+
+  /* ---------- Подложки поверх видео-фона ---------- */
+  --veil-left:  linear-gradient(90deg, rgba(250,248,245,.94) 0%, rgba(250,248,245,.85) 38%, rgba(250,248,245,0) 62%);
+  --veil-right: linear-gradient(270deg, rgba(250,248,245,.94) 0%, rgba(250,248,245,.85) 38%, rgba(250,248,245,0) 62%);
+  --veil-bottom: linear-gradient(0deg, rgba(250,248,245,.96) 0%, rgba(250,248,245,.88) 45%, rgba(250,248,245,0) 75%); /* телефон */
+  --card-glass: rgba(250, 248, 245, 0.92);  /* карточка-блок поверх видео */
+
+  /* Текст прямо на видео, без подложек: читаемость даёт только тень букв */
+  --text-shadow:  0 1px 2px rgba(60, 10, 12, .7), 0 2px 6px rgba(60, 10, 12, .45), 0 4px 28px rgba(60, 10, 12, .55);
+
+  /* ---------- Шрифты ---------- */
+  --font-display: "Tsarevich", "Arial Narrow", sans-serif;  /* ТОЛЬКО заголовки, ТОЛЬКО прописные */
+  --font-body:    "Montserrat", Arial, sans-serif;          /* всё остальное */
+
+  /* ---------- Размеры текста (адаптивные) ---------- */
+  /* Иерархия по логобуку, стр. 14: сайт / моб. */
+  --fs-display: clamp(48px, 8vw, 112px);  /* название / главный экран */
+  --fs-h1:      clamp(44px, 5vw, 72px);   /* главный заголовок: 72 / 44 */
+  --fs-h2:      clamp(32px, 3.4vw, 48px); /* заголовок раздела: 48 / 32 */
+  --fs-h3:      clamp(24px, 2.4vw, 32px); /* заголовок карточки */
+  --fs-sub:     clamp(20px, 1.8vw, 24px); /* подзаголовок Montserrat 700: 24 / 20 */
+  --fs-lead:    clamp(18px, 1.6vw, 22px);
+  --fs-body:    clamp(16px, 1.2vw, 18px); /* текст: 18 / 16 */
+  --fs-small:   13px;                     /* подписи: 14 / 13 */
+  --fs-eyebrow: 14px;                     /* надзаголовок: 15 / 14 */
+  --fs-button:  14px;                     /* кнопки: 15 / 14 */
+
+  /* ---------- Отступы (шаг 8 px) ---------- */
+  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
+  --space-5: 24px;  --space-6: 32px;  --space-7: 48px;  --space-8: 64px;
+  --space-9: 96px;  --space-10: 128px;
+  --section-y: clamp(64px, 10vw, 128px);  /* вертикальный отступ секции */
+  --gutter:    clamp(16px, 4vw, 32px);    /* боковые поля страницы */
+  --container: 1200px;
+  --text-col:  720px;
+  --header-h:  72px;
+
+  /* ---------- Радиусы ---------- */
+  --radius-sm:   4px;    /* кнопки, поля, бейджи */
+  --radius-lg:   16px;   /* карточки, фото в карточках */
+  --radius-full: 999px;  /* аватары, точки слайдера, круглые иконки-кнопки */
+
+  /* ---------- Тени ---------- */
+  --shadow-card: 0 1px 2px rgba(134, 22, 26, 0.06), 0 12px 32px rgba(134, 22, 26, 0.10);
+  --shadow-header: 0 2px 16px rgba(134, 22, 26, 0.25);
+
+  /* ---------- Анимации ---------- */
+  --ease-out:  cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:  150ms;   /* hover, focus */
+  --dur-base:  300ms;   /* меню, раскрытия */
+  --dur-reveal: 800ms;  /* появление при скролле */
+  --dur-scene: 1400ms;  /* перетекание планов видео-фона */
+  --stagger:   80ms;    /* задержка между элементами группы */
+  --reveal-shift: 32px; /* насколько элемент «поднимается» при появлении */
+}
+
+/* Размеры «Сайт» из логобука — от планшета и шире */
+@media (min-width: 768px) {
+  :root {
+    --fs-small:   14px;
+    --fs-eyebrow: 15px;
+    --fs-button:  15px;
+  }
+}
